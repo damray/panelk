@@ -8,14 +8,14 @@ Initial work on PAN-OS integration with ELK
 ​
 ## To Do
 ​
-Next steps
+**Next steps**
 - [x] Ingestion
 - [x] Global Protect
 - [ ] Threat logs
-- [ ] 
+- [ ] Traffic logs
 ​
-Optional
-- [ ] monitor global protect user delta
+**Optional**
+- [ ] monitor global protect user delta between connection and disconnection
 
 ## Authors
 ​
@@ -24,7 +24,7 @@ Optional
 ### Contributors 
 
 * **Victor Knell**
-​
+
 ## License
 ​
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/LICENSE.md) file for details
