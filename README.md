@@ -14,11 +14,11 @@ Initial work on PAN-OS integration with ELK
 - [ ] Threat logs
 - [ ] Traffic logs
 ​
+
 **Optional**
 - [ ] monitor global protect user delta between connection and disconnection
 
 ## Authors
-​
 * **Damien Raynal** - *main author*
 
 ### Contributors 
@@ -27,4 +27,4 @@ Initial work on PAN-OS integration with ELK
 
 ## License
 ​
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/blob/master/LICENSE.md) file for details
