@@ -62,7 +62,7 @@ output {hosts => ["192.168.45.101:9200"]}
 
 ### Contributors 
 
-* **Jean-Baptiste Guglielmine** - *lead bruiteur*
+* **Jean-Baptiste Guglielmine** - *lead bruiteur and master debugger "alors là c'est pas bon"*
 * **Victor Knell** - *lead README.md developer*
 
 ## License
