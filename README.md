@@ -1,9 +1,18 @@
 # PAN-OS Elk integration
-​
-## Getting Started
 
 Initial work on PAN-OS integration with ELK
-Change IP from Logstash and Kibana to point toward Elasticsearch IP.
+
+## Getting Started
+
+### Prerequisites
+
+- linux based os
+- docker
+- docker compose
+
+### Changes
+
+Change IP from Logstash and Kibana to point toward Elasticsearch IP
 
 ---
 1. *logstash/config/logstash.yml*
@@ -27,8 +36,6 @@ output {hosts => ["192.168.45.101:9200"]}
 ```
 ---
 
-### Prerequisites
-​
 ## To Do
 ​
 **Next steps**
@@ -47,6 +54,7 @@ output {hosts => ["192.168.45.101:9200"]}
 ## References
 
 [Elastic Search](https://www.elastic.co/guide/en/kibana/current/saved-objects-api-import.html)
+
 [Docker Compose](docs.docker.com/compose/compose-file)
 
 ## Authors
@@ -54,7 +62,8 @@ output {hosts => ["192.168.45.101:9200"]}
 
 ### Contributors 
 
-* **Victor Knell**
+* **Jean-Baptiste Guglielmine** - *lead bruiteur*
+* **Victor Knell** - *lead README.md developer*
 
 ## License
 ​
