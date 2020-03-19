@@ -20,13 +20,13 @@ elasticsearch.hosts: [ "http://192.168.45.101:9200" ]
 ```
 output {hosts => ["192.168.45.101:9200"]}
 ```
----
-
 
 4. *pipeline/logstash.conf*
 ```
 output {hosts => ["192.168.45.101:9200"]}
 ```
+---
+
 ### Prerequisites
 ​
 ## To Do
