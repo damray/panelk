@@ -15,26 +15,44 @@ Initial work on PAN-OS integration with ELK
 Change IP from Logstash and Kibana to point toward Elasticsearch IP
 
 ---
-1. *logstash/config/logstash.yml*
-```
-xpack.monitoring.elasticsearch.hosts: [ "http://192.168.45.101:9200" ]
-```
-
-2. *kibana/config/kibana.yml*
+1. *kibana/config/kibana.yml*
 ```
 elasticsearch.hosts: [ "http://192.168.45.101:9200" ]
 ```
 
-3. *pipeline/PAN-OS9.conf*
+2. *logstash/config/logstash.yml*
+```
+xpack.monitoring.elasticsearch.hosts: [ "http://192.168.45.101:9200" ]
+```
+
+3. *logstash/pipeline/PAN-OS9.conf*
 ```
 output {hosts => ["192.168.45.101:9200"]}
 ```
 
-4. *pipeline/logstash.conf*
+4. *logstash/pipeline/logstash.conf*
 ```
 output {hosts => ["192.168.45.101:9200"]}
 ```
 ---
+
+To change using vi enter the following command:
+```
+:%s/192.168.45.101/YOURIP/g
+```
+
+### Ubuntu 18.04 LTS
+
+Installation on Ubuntu LTS 18.04
+
+```
+git clone https://github.com/damray/panelk
+sudo apt install docker docker-compose
+sudo systemctl start docker
+sudo systemctl enable docker
+cd panelk
+sudo docker-compose up
+```
 
 ## To Do
 ​
