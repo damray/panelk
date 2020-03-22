@@ -88,5 +88,28 @@ sudo docker-compose up
 * **Victor Knell** - *lead README.md developer*
 
 ## License
-​
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/blob/master/LICENSE.md) file for details
+​This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/blob/master/LICENSE.md) file for details
+
+## DRAFT CHAPTER
+
+## Waiting for ES and Kibana to be "healthy"
+We can configure docker-compose to wait for the ElasticSearch and Kibana container to startup and be ready to accept requests before continuing :
+
+The following healthcheck has been configured to periodically check if ES and Kibana are ready using the `curl` command. See the documentation for `ElasticSearch` command [here](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html).
+```yml
+healthcheck:
+  test: curl -s -f http://elastic:changeme@localhost:9200/_cat/health; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
+    interval: 30s
+    timeout: 10s
+    retries: 5
+```
+If the check is successful the container will be marked as `healthy`. Until then it will remain in an `unhealthy` state.
+For more details about the healthcheck parameters `interval`, `timeout` and `retries` see the documentation [here](https://docs.docker.com/engine/reference/builder/#healthcheck).
+
+The container "curl" will configure ElasticSearch and Kibana when the 2 container healthcheck will bi `healthy`. The Curl Services depend on ES and Kibana and can be configured with the `depends_on` parameter as follows:
+```yml
+depends_on:
+  kibana:
+    condition: service_healthy
+```
+It's will be also possible to create a chain, ElasticSearch < Logstash < Kibana < Curl 
