@@ -6,7 +6,19 @@ Initial work on PAN-OS integration with ELK
 
 ### Prerequisites
 
-- linux based os
+#### System
+
+**Minimum**
+- CPU: 2 cores
+- RAM: 4GB
+
+**Recommanded**
+- CPU: 4 cores
+- RAM: 8GB
+
+#### Software
+
+- linux based os (tested on Ubuntu 18.04 LTS)
 - docker
 - docker compose
 
@@ -36,7 +48,7 @@ output {hosts => ["192.168.45.101:9200"]}
 ```
 ---
 
-To change using vi enter the following command:
+To change the address using vi enter the following command:
 ```
 :%s/192.168.45.101/YOURIP/g
 ```
@@ -51,6 +63,7 @@ sudo apt install docker docker-compose
 sudo systemctl start docker
 sudo systemctl enable docker
 cd panelk
+# See **changes** first
 sudo docker-compose up
 ```
 
