@@ -15,10 +15,8 @@ services:
       - "9200:9200"
       - "9300:9300"
     environment:
-      ES_JAVA_OPTS: "-Xmx4g -Xms2g"
-      ELASTIC_PASSWORD: changeme
-      # Use single node discovery in order to disable production mode and avoid bootstrap checks
-      # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      - ES_JAVA_OPTS: "-Xmx4g -Xms2g"
+      - ELASTIC_PASSWORD
       discovery.type: single-node
     networks:
       - elk
@@ -59,6 +57,29 @@ services:
       - elk
     depends_on:
       - elasticsearch
+  
+  setup_panelk:
+    image: centos:7
+    volumes:
+      - type: bind
+        source: ./scripts/setup-panelk.sh
+        destination: /usr/local/bin/setup-panelk.sh
+        readonly: true
+      - type: bind
+        source: ./scripts/object1.ndjson
+        destination: /usr/share/kibana/config/object1.ndjson
+        readonly: true
+      - type: bind
+        source: ./scripts/object2.ndjson
+        destination: /usr/share/kibana/config/object2.ndjson
+        readonly: true
+    command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-logstash.sh | tr -d "\r" | bash']
+    environment: 
+      - ELASTIC_PASSWORD
+    networks: 
+      - elk
+    depends_on: 
+      - kibana
 
 networks:
   elk:
