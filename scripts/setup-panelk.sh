@@ -11,7 +11,7 @@ done
 
 # Set the password for the elastic user.
 until curl -s -H 'Content-Type:application/json' \
-     -XPUT $es_url/_security/user/${user}/_password \
+     -XPOST $es_url/_security/user/elastic/_password \
      -d "{\"password\": \"${ELASTIC_PASSWORD}\"}"
 do
     sleep 2
