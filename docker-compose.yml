@@ -71,6 +71,8 @@ services:
       - ./scripts/object1.ndjson:/usr/share/kibana/config/object1.ndjson:ro
       - ./scripts/object2.ndjson:/usr/share/kibana/config/object2.ndjson:ro
       - ./scripts/setup-panelk.sh:/usr/local/bin/setup-panelk.sh:ro
+      - ./scripts/threat_template_mapping.json:/usr/share/kibana/config/threat_template_mapping.json:ro
+      - ./scripts/traffic_template_mapping.json:/usr/share/kibana/config/traffic_template_mapping.json:ro
     command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-panelk.sh | tr -d "\r" | bash']
     environment: 
       - ELASTIC_PASSWORD=changeme

@@ -7,12 +7,6 @@ user=paloalto
 es_url=http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200
 kb_url=http://elastic:${ELASTIC_PASSWORD}@kibana:5601
 
-
-ping -c 5 elasticsearch
-
-ping -c 5 kibana
-
-
 until curl -s -f http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200/_cat/health; do
     sleep 2 
 done
@@ -45,6 +39,17 @@ done
 #    sleep 2
 #    echo Retrying1...
 #done
+until curl \
+     -H 'kbn-xsrf:true' \
+     -XPOST $kb_url/_template/traffic_mapping \
+     --form file=@/usr/share/kibana/config/traffic_template_mapping.json
+done
+
+until curl \
+     -H 'kbn-xsrf:true' \
+     -XPOST $kb_url/_template/threat_mapping \
+     --form file=@/usr/share/kibana/config/threat_template_mapping.json
+done
 
 until curl \
      -H 'kbn-xsrf:true' \
