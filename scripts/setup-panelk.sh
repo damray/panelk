@@ -21,7 +21,7 @@ done
 
 until curl -s -H 'Content-Type:application/json' \
      -XPUT $kb_url/api/saved_objects/_import \
-     -H "kbn-xsrf: true"
+     -H "kbn-xsrf: true" \
      --form file=@/usr/share/kibana/config/object1.ndjson
 do
     sleep 2
