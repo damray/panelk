@@ -9,8 +9,7 @@ until curl -s $es_url -o /dev/null; do
     sleep 1
 done
 
-# Set the password for the logstash_system user.
-# REF: https://www.elastic.co/guide/en/x-pack/6.0/setting-up-authentication.html#set-built-in-user-passwords
+# Set the password for the elastic user.
 until curl -s -H 'Content-Type:application/json' \
      -XPUT $es_url/_security/user/${user}/_password \
      -d "{\"password\": \"${ELASTIC_PASSWORD}\"}"
