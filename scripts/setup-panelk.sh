@@ -16,7 +16,7 @@ until curl -s -H 'Content-Type:application/json' \
      -d "{\"password\": \"${ELASTIC_PASSWORD}\"}"
 do
     sleep 2
-    echo Retrying...
+    echo Retrying1...
 done
 
 until curl -s -H 'Content-Type:application/json' \
@@ -26,5 +26,5 @@ until curl -s -H 'Content-Type:application/json' \
      --form file=@/usr/share/kibana/config/object1.ndjson
 do
     sleep 2
-    echo Retrying...
+    echo Retrying2...
 done
