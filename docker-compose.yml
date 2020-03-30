@@ -15,9 +15,9 @@ services:
       - "9200:9200"
       - "9300:9300"
     environment:
-      - ES_JAVA_OPTS: "-Xmx4g -Xms2g"
-      - ELASTIC_PASSWORD
-      discovery.type: single-node
+      - ES_JAVA_OPTS= -Xmx4g -Xms2g
+      - ELASTIC_PASSWORD=changeme
+      - discovery.type= single-node
     networks:
       - elk
 
@@ -59,9 +59,9 @@ services:
       - elasticsearch
     healthcheck:
         test: curl -s -f http://elastic:${ELASTIC_PASSWORD}@localhost:9200/_cat/health; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
-          interval: 30s
-          timeout: 10s
-          retries: 5
+        interval: 30s
+        timeout: 10s
+        retries: 5
   
   setup_panelk:
     image: centos:7
@@ -78,14 +78,13 @@ services:
         source: ./scripts/object2.ndjson
         destination: /usr/share/kibana/config/object2.ndjson
         readonly: true
-    command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-logstash.sh | tr -d "\r" | bash']
+    command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-panelk.sh | tr -d "\r" | bash']
     environment: 
       - ELASTIC_PASSWORD
     networks: 
       - elk
     depends_on: 
-      - kibana:
-         condition: service_healthy
+      - kibana
 
 networks:
   elk:
