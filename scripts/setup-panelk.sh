@@ -41,7 +41,7 @@ done
 #done
 until curl \
      -H 'kbn-xsrf:true' \
-     -XPOST $kb_url/_template/traffic_mapping \
+     -XPUT $kb_url/_template/traffic_mapping \
      --form file=@/usr/share/kibana/config/traffic_template_mapping.json
 do
     sleep 2
@@ -51,7 +51,7 @@ done
 
 until curl \
      -H 'kbn-xsrf:true' \
-     -XPOST $kb_url/_template/threat_mapping \
+     -XPUT $kb_url/_template/threat_mapping \
      --form file=@/usr/share/kibana/config/threat_template_mapping.json
 do
     sleep 2
