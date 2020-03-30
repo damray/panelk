@@ -6,6 +6,13 @@ user=paloalto
 
 es_url=http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200
 kb_url=http://elastic:${ELASTIC_PASSWORD}@kibana:5601
+
+
+ping -c 5 elasticsearch
+
+ping -c 5 kibana
+
+
 # Wait for Elasticsearch to start up before doing anything.
 until curl -s $es_url -o /dev/null; do
     sleep 1
