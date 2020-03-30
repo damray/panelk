@@ -66,18 +66,9 @@ services:
   setup_panelk:
     image: centos:7
     volumes:
-      - type: bind
-        source: ./scripts/setup-panelk.sh
-        destination: /usr/local/bin/setup-panelk.sh
-        readonly: true
-      - type: bind
-        source: ./scripts/object1.ndjson
-        destination: /usr/share/kibana/config/object1.ndjson
-        readonly: true
-      - type: bind
-        source: ./scripts/object2.ndjson
-        destination: /usr/share/kibana/config/object2.ndjson
-        readonly: true
+      - ./scripts/object1.ndjson:/usr/share/kibana/config/object1.ndjson:ro
+      - ./scripts/object2.ndjson:/usr/share/kibana/config/object2.ndjson:ro
+      - ./scripts/setup-panelk.sh:/usr/local/bin/setup-panelk.sh:ro
     command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-panelk.sh | tr -d "\r" | bash']
     environment: 
       - ELASTIC_PASSWORD
