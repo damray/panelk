@@ -38,7 +38,7 @@ services:
       - "5514:5514/tcp"
       - "9600:9600"
     environment:
-      LS_JAVA_OPTS=-Xmx4g -Xms1g
+      - LS_JAVA_OPTS=-Xmx4g -Xms1g
     networks:
       - elk
     depends_on:
