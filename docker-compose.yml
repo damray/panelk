@@ -71,7 +71,8 @@ services:
       - ./scripts/setup-panelk.sh:/usr/local/bin/setup-panelk.sh:ro
     command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-panelk.sh | tr -d "\r" | bash']
     environment: 
-      - ELASTIC_PASSWORD
+      - ELASTIC_PASSWORD=changeme
+      - user=elastic
     networks: 
       - elk
     depends_on: 

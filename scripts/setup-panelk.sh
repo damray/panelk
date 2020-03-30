@@ -12,7 +12,7 @@ done
 # Set the password for the logstash_system user.
 # REF: https://www.elastic.co/guide/en/x-pack/6.0/setting-up-authentication.html#set-built-in-user-passwords
 until curl -s -H 'Content-Type:application/json' \
-     -XPUT $es_url/_xpack/security/user/logstash_system/_password \
+     -XPUT $es_url/_security/user/${user}/_password \
      -d "{\"password\": \"${ELASTIC_PASSWORD}\"}"
 do
     sleep 2
@@ -26,4 +26,13 @@ until curl \
 do
     sleep 2
     echo Retrying2...
+done
+
+until curl \
+     -H 'kbn-xsrf:true' \
+     -XPOST $kb_url/api/saved_objects/_import \
+     --form file=@/usr/share/kibana/config/object2.ndjson
+do
+    sleep 2
+    echo Retrying3...
 done
