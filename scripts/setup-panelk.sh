@@ -19,7 +19,7 @@ do
     echo Retrying1...
 done
 
-until curl -s -H 'Content-Type:application/json' \
+until curl \
      -H 'kbn-xsrf:true' \
      -XPOST $kb_url/api/saved_objects/_import \
      --form file=@/usr/share/kibana/config/object1.ndjson
