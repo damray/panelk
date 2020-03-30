@@ -20,8 +20,9 @@ do
 done
 
 until curl -s -H 'Content-Type:application/json' \
+     -H 'kbn-xsrf:true' \
+     -u elastic:changeme \
      -XPOST $kb_url/api/saved_objects/_import \
-     -H "kbn-xsrf: true" \
      --form file=@/usr/share/kibana/config/object1.ndjson
 do
     sleep 2
