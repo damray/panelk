@@ -3,7 +3,7 @@
 set -euo pipefail
 
 es_url=http://elastic:${ELASTIC_PASSWORD}@192.168.45.100:9200
-kb_url=http://elastic:${ELASTIC_PASSWORD}@192.168.45.100:5601
+kb_url=http://192.168.45.100:5601
 # Wait for Elasticsearch to start up before doing anything.
 until curl -s $es_url -o /dev/null; do
     sleep 1
@@ -20,7 +20,8 @@ do
 done
 
 until curl -s -H 'Content-Type:application/json' \
-     -XPUT $kb_url/api/saved_objects/_import \
+     -u elastic:changeme \
+     -XPOST $kb_url/api/saved_objects/_import \
      -H "kbn-xsrf: true" \
      --form file=@/usr/share/kibana/config/object1.ndjson
 do
