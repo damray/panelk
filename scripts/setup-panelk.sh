@@ -39,7 +39,7 @@ done
 #    sleep 2
 #    echo Retrying1...
 #done
-until curl \
+until curl -H 'Content-Type:application/json' \
      -H 'kbn-xsrf:true' \
      -XPUT $kb_url/_template/traffic_mapping \
      --form file=@/usr/share/kibana/config/traffic_template_mapping.json
@@ -49,7 +49,7 @@ do
     sleep 2
 done
 
-until curl \
+until curl -H 'Content-Type:application/json' \
      -H 'kbn-xsrf:true' \
      -XPUT $kb_url/_template/threat_mapping \
      --form file=@/usr/share/kibana/config/threat_template_mapping.json
