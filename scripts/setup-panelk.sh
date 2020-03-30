@@ -4,8 +4,8 @@ set -euo pipefail
 
 user=paloalto
 
-es_url=http://elastic:${ELASTIC_PASSWORD}@192.168.45.100:9200
-kb_url=http://elastic:${ELASTIC_PASSWORD}@192.168.45.100:5601
+es_url=http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200
+kb_url=http://elastic:${ELASTIC_PASSWORD}@kibana:5601
 # Wait for Elasticsearch to start up before doing anything.
 until curl -s $es_url -o /dev/null; do
     sleep 1
