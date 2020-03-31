@@ -8,7 +8,7 @@
       "index": {
         "lifecycle": {
           "name": "traffic-policy",
-          "rollover_alias": "traffic"
+          "rollover_alias": "traffic-rollover"
         },
         "number_of_shards": "1",
         "refresh_interval": "5s"
