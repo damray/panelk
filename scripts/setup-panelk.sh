@@ -40,7 +40,7 @@ done
 #    echo Retrying1...
 #done
 until curl -H 'Content-Type:application/json' \
-     -XPUT $kb_url/_template/traffic_mapping \
+     -XPUT $es_url/_template/traffic_mapping \
      --form file=@/usr/share/kibana/config/traffic_template_mapping.json
 do
     sleep 2
@@ -49,7 +49,7 @@ do
 done
 
 until curl -H 'Content-Type:application/json' \
-     -XPUT $kb_url/_template/threat_mapping \
+     -XPUT $es_url/_template/threat_mapping \
      --form file=@/usr/share/kibana/config/threat_template_mapping.json
 do
     sleep 2
