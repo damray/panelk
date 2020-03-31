@@ -74,3 +74,6 @@ do
     sleep 2
     echo inject dashboard...
 done
+
+#never stop
+tail -f /dev/null
