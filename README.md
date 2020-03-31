@@ -24,6 +24,7 @@ Initial work on PAN-OS integration with ELK
 
 ### Changes
 
+If you want to modify the local IP created by docker (today not needed):
 Change IP from Logstash and Kibana to point toward Elasticsearch IP
 
 ---
@@ -72,6 +73,7 @@ sudo docker-compose up
 **Next steps**
 - [x] Ingestion
 - [x] Global Protect
+- [ ] No ip change needed
 - [ ] Threat logs
 - [ ] Traffic logs
 - [ ] System logs - parse per event ID (global protect and others)
@@ -85,7 +87,6 @@ sudo docker-compose up
 ## References
 
 [Elastic Search](https://www.elastic.co/guide/en/kibana/current/saved-objects-api-import.html)
-
 [Docker Compose](docs.docker.com/compose/compose-file)
 
 ## Authors
@@ -106,7 +107,7 @@ sudo docker-compose up
 ## DRAFT CHAPTER
 
 ## Waiting for ES and Kibana to be "healthy"
-We can configure docker-compose to wait for the ElasticSearch and Kibana container to startup and be ready to accept requests before continuing :
+In the Docker compose the panelk is configured to wait for the ElasticSearch and Kibana container to startup and be ready to accept requests before continuing :
 
 The following healthcheck has been configured to periodically check if ES and Kibana are ready using the `curl` command. See the documentation for `ElasticSearch` command [here](https://www.postgresql.org/docs/9.4/static/app-pg-isready.html).
 ```yml
@@ -125,4 +126,15 @@ depends_on:
   kibana:
     condition: service_healthy
 ```
-It's will be also possible to create a chain, ElasticSearch < Logstash < Kibana < Curl 
+It's will be also possible to create a chain, ElasticSearch < Logstash < Kibana < Curl
+
+There is a last container with the service name setup_panelk who execute a script.
+
+The script check if ELK is alive and push several configuration :
+- [x] object with index pattern
+- [x] dashboard
+- [x] elastic mapping template Threat and Traffic
+- [ ] elastic mapping template URL and GP
+- [x] elastic index creation
+- [x] Kibana dashboard
+​
