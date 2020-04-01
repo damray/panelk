@@ -41,7 +41,7 @@ done
 #done
 until curl -H 'Content-Type:application/json'\
      -XPUT $es_url/_template/traffic_mapping \
-     --form file=@/usr/share/kibana/config/traffic_template_mapping.json
+     -d @/usr/share/kibana/config/traffic_template_mapping.json
 do
     sleep 2
     echo inject traffic template...
@@ -50,7 +50,7 @@ done
 
 until curl -H 'Content-Type:application/json'\
      -XPUT $es_url/_template/threat_mapping \
-     --form file=@/usr/share/kibana/config/threat_template.json
+     -d @/usr/share/kibana/config/threat-template.json
 do
     sleep 2
     echo inject threat template...
@@ -60,7 +60,7 @@ done
 until curl \
      -H 'kbn-xsrf:true' \
      -XPOST $kb_url/api/saved_objects/_import \
-     --form file=@/usr/share/kibana/config/object1.ndjson
+     -d @/usr/share/kibana/config/object1.ndjson
 do
     sleep 2
     echo inject object...
@@ -69,7 +69,7 @@ done
 until curl \
      -H 'kbn-xsrf:true' \
      -XPOST $kb_url/api/saved_objects/_import \
-     --form file=@/usr/share/kibana/config/object2.ndjson
+     -d @/usr/share/kibana/config/object2.ndjson
 do
     sleep 2
     echo inject dashboard...
