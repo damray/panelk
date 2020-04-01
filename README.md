@@ -25,6 +25,7 @@ Initial work on PAN-OS integration with ELK
 ### Changes
 
 If you want to modify the local IP created by docker (today not needed):
+
 Change IP from Logstash and Kibana to point toward Elasticsearch IP
 
 ---
