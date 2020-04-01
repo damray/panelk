@@ -1,750 +1,748 @@
 {
-    "threat_mapping": {
-        "order": 0,
-        "version": 1,
-        "index_patterns": [
-            "panos-threat*"
-        ],
-        "settings": {
-            "index": {
-                "lifecycle": {
-                    "name": "threat-policy",
-                    "rollover_alias": "threat-rollover"
-                },
-                "number_of_shards": "1",
-                "refresh_interval": "5s"
-            }
-        },
-        "mappings": {
-            "properties": {
-                "RepeatCount": {
-                    "type": "long"
-                },
-                "Miscellaneous": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+    "order": 0,
+    "version": 1,
+    "index_patterns": [
+        "panos-threat*"
+    ],
+    "settings": {
+        "index": {
+            "lifecycle": {
+                "name": "threat-policy",
+                "rollover_alias": "threat-rollover"
+            },
+            "number_of_shards": "1",
+            "refresh_interval": "5s"
+        }
+    },
+    "mappings": {
+        "properties": {
+            "RepeatCount": {
+                "type": "long"
+            },
+            "Miscellaneous": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "ContentType": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "ContentType": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "ReportID": {
-                    "type": "long"
-                },
-                "type": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "ReportID": {
+                "type": "long"
+            },
+            "type": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "DestinationPort": {
-                    "type": "integer"
-                },
-                "GeneratedTime": {
-                    "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
-                    "type": "date"
-                },
-                "path": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "DestinationPort": {
+                "type": "integer"
+            },
+            "GeneratedTime": {
+                "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
+                "type": "date"
+            },
+            "path": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "SourceZone": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "SourceZone": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "HTTPMethod": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "HTTPMethod": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "PCAP_ID": {
-                    "type": "long"
-                },
-                "SequenceNumber": {
-                    "type": "long"
-                },
-                "TunnelID_IMSI": {
-                    "type": "long"
-                },
-                "host": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "PCAP_ID": {
+                "type": "long"
+            },
+            "SequenceNumber": {
+                "type": "long"
+            },
+            "TunnelID_IMSI": {
+                "type": "long"
+            },
+            "host": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "NATSourceIP": {
-                    "type": "ip"
-                },
-                "DestinationLocation": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "NATSourceIP": {
+                "type": "ip"
+            },
+            "DestinationLocation": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "NATDestinationPort": {
-                    "type": "integer"
-                },
-                "RuleName": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "NATDestinationPort": {
+                "type": "integer"
+            },
+            "RuleName": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "syslog_host": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "syslog_host": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "MonitorTag_IMEI": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "MonitorTag_IMEI": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "URLIndex": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
+                }
+            },
+            "URLIndex": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
                     }
-                },
-                "DestinationIPGeo": {
-                    "properties": {
-                        "timezone": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "ip": {
-                            "type": "ip"
-                        },
-                        "latitude": {
-                            "type": "half_float"
-                        },
-                        "continent_code": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "city_name": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "country_code2": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "country_name": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "dma_code": {
-                            "type": "short"
-                        },
-                        "country_code3": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "location": {
-                            "type": "geo_point"
-                        },
-                        "region_name": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "postal_code": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "text"
-                                }
-                            }
-                        },
-                        "longitude": {
-                            "type": "half_float"
-                        },
-                        "region_code": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
+                }
+            },
+            "DestinationIPGeo": {
+                "properties": {
+                    "timezone": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
                             }
                         }
-                    }
-                },
-                "Recipient": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "tags": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Sender": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "DeviceGroupHierarchyLevel4": {
-                    "type": "short"
-                },
-                "DeviceGroupHierarchyLevel3": {
-                    "type": "short"
-                },
-                "LogForwardingProfile": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "SerialNumber": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "DeviceGroupHierarchyLevel2": {
-                    "type": "short"
-                },
-                "SourceUser": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "DeviceGroupHierarchyLevel1": {
-                    "type": "short"
-                },
-                "SourceVMUUID": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "ParentStartTime": {
-                    "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
-                    "type": "date"
-                },
-                "ReceiveTime": {
-                    "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
-                    "type": "date"
-                },
-                "ActionFlags": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "DestinationZone": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Application": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "SessionID": {
-                    "type": "long"
-                },
-                "NATSourcePort": {
-                    "type": "integer"
-                },
-                "SourceLocation": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "VirtualSystem": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Action": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Category": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "VirtualSystemName": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "InboundInterface": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "ParentSessionID": {
-                    "type": "integer"
-                },
-                "SourcePort": {
-                    "type": "integer"
-                },
-                "Direction": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "URLCategory": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "OutboundInterface": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "ThreatCategory": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "SourceIP": {
-                    "type": "ip"
-                },
-                "ContentVersion": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "@version": {
-                    "type": "byte"
-                },
-                "SourceIPGeo": {
-                    "properties": {
-                        "timezone": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "ip": {
-                            "type": "ip"
-                        },
-                        "latitude": {
-                            "type": "half_float"
-                        },
-                        "continent_code": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "city_name": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "country_code2": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "country_name": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "dma_code": {
-                            "type": "short"
-                        },
-                        "country_code3": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "location": {
-                            "type": "geo_point"
-                        },
-                        "region_name": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "postal_code": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "text"
-                                }
-                            }
-                        },
-                        "longitude": {
-                            "type": "half_float"
-                        },
-                        "region_code": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "ignore_above": 256,
-                                    "type": "keyword"
-                                }
+                    },
+                    "ip": {
+                        "type": "ip"
+                    },
+                    "latitude": {
+                        "type": "half_float"
+                    },
+                    "continent_code": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
                             }
                         }
-                    }
-                },
-                "UserAgent": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
+                    },
+                    "city_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
                         }
-                    }
-                },
-                "Protocol": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
+                    },
+                    "country_code2": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
                         }
-                    }
-                },
-                "Threat_ContentType": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
+                    },
+                    "country_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
                         }
-                    }
-                },
-                "DestinationUser": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
+                    },
+                    "dma_code": {
+                        "type": "short"
+                    },
+                    "country_code3": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
                         }
-                    }
-                },
-                "FUTURE_USE": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
+                    },
+                    "location": {
+                        "type": "geo_point"
+                    },
+                    "region_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
                         }
-                    }
-                },
-                "TunnelType": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
+                    },
+                    "postal_code": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "text"
+                            }
                         }
-                    }
-                },
-                "DestinationVMUUID": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "ThreatID": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "NATDestinationIP": {
-                    "type": "ip"
-                },
-                "Referer": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Severity": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Flags": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Subject": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "DestinationIP": {
-                    "type": "ip"
-                },
-                "Type": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "@timestamp": {
-                    "type": "date"
-                },
-                "FileType": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "Cloud": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "X-Forwarded-For": {
-                    "type": "ip"
-                },
-                "FileDigest": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "DeviceName": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "ignore_above": 256,
-                            "type": "keyword"
+                    },
+                    "longitude": {
+                        "type": "half_float"
+                    },
+                    "region_code": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
                         }
                     }
                 }
+            },
+            "Recipient": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "tags": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Sender": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DeviceGroupHierarchyLevel4": {
+                "type": "short"
+            },
+            "DeviceGroupHierarchyLevel3": {
+                "type": "short"
+            },
+            "LogForwardingProfile": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "SerialNumber": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DeviceGroupHierarchyLevel2": {
+                "type": "short"
+            },
+            "SourceUser": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DeviceGroupHierarchyLevel1": {
+                "type": "short"
+            },
+            "SourceVMUUID": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "ParentStartTime": {
+                "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
+                "type": "date"
+            },
+            "ReceiveTime": {
+                "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
+                "type": "date"
+            },
+            "ActionFlags": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DestinationZone": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Application": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "SessionID": {
+                "type": "long"
+            },
+            "NATSourcePort": {
+                "type": "integer"
+            },
+            "SourceLocation": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "VirtualSystem": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Action": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Category": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "VirtualSystemName": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "InboundInterface": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "ParentSessionID": {
+                "type": "integer"
+            },
+            "SourcePort": {
+                "type": "integer"
+            },
+            "Direction": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "URLCategory": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "OutboundInterface": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "ThreatCategory": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "SourceIP": {
+                "type": "ip"
+            },
+            "ContentVersion": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "@version": {
+                "type": "byte"
+            },
+            "SourceIPGeo": {
+                "properties": {
+                    "timezone": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "ip": {
+                        "type": "ip"
+                    },
+                    "latitude": {
+                        "type": "half_float"
+                    },
+                    "continent_code": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "city_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "country_code2": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "country_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "dma_code": {
+                        "type": "short"
+                    },
+                    "country_code3": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "location": {
+                        "type": "geo_point"
+                    },
+                    "region_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "postal_code": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "text"
+                            }
+                        }
+                    },
+                    "longitude": {
+                        "type": "half_float"
+                    },
+                    "region_code": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        }
+                    }
+                }
+            },
+            "UserAgent": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Protocol": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Threat_ContentType": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DestinationUser": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "FUTURE_USE": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "TunnelType": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DestinationVMUUID": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "ThreatID": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "NATDestinationIP": {
+                "type": "ip"
+            },
+            "Referer": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Severity": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Flags": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Subject": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DestinationIP": {
+                "type": "ip"
+            },
+            "Type": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "@timestamp": {
+                "type": "date"
+            },
+            "FileType": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Cloud": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "X-Forwarded-For": {
+                "type": "ip"
+            },
+            "FileDigest": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "DeviceName": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
             }
-        },
-        "aliases": {}
-    }
+        }
+    },
+    "aliases": {}
 }
