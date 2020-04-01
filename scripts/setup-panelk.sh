@@ -50,7 +50,7 @@ done
 
 until curl -H 'Content-Type:application/json'\
      -XPUT $es_url/_template/threat_mapping \
-     -d @/usr/share/kibana/config/threat-template.json
+     -d @/usr/share/kibana/config/threat_template_mapping.json
 do
     sleep 2
     echo inject threat template...
