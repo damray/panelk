@@ -60,7 +60,7 @@ done
 until curl \
      -H 'kbn-xsrf:true' \
      -XPOST $kb_url/api/saved_objects/_import \
-     -d @/usr/share/kibana/config/object1.ndjson
+     --form file=@/usr/share/kibana/config/object1.ndjson
 do
     sleep 2
     echo inject object...
@@ -69,7 +69,7 @@ done
 until curl \
      -H 'kbn-xsrf:true' \
      -XPOST $kb_url/api/saved_objects/_import \
-     -d @/usr/share/kibana/config/object2.ndjson
+     --form file=@/usr/share/kibana/config/object2.ndjson
 do
     sleep 2
     echo inject dashboard...
