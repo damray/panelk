@@ -22,51 +22,46 @@ Initial work on PAN-OS integration with ELK
 - docker
 - docker compose
 
-### Changes
+### Installation
 
-If you want to modify the local IP created by docker (today not needed):
-
-Change IP from Logstash and Kibana to point toward Elasticsearch IP
-
----
-1. *kibana/config/kibana.yml*
-```
-elasticsearch.hosts: [ "http://192.168.45.101:9200" ]
-```
-
-2. *logstash/config/logstash.yml*
-```
-xpack.monitoring.elasticsearch.hosts: [ "http://192.168.45.101:9200" ]
-```
-
-3. *logstash/pipeline/PAN-OS9.conf*
-```
-output {hosts => ["192.168.45.101:9200"]}
-```
-
-4. *logstash/pipeline/logstash.conf*
-```
-output {hosts => ["192.168.45.101:9200"]}
-```
----
-
-To change the address using vi enter the following command:
-```
-:%s/192.168.45.101/YOURIP/g
-```
-
-### Ubuntu 18.04 LTS
+#### Ubuntu 18.04 LTS
 
 Installation on Ubuntu LTS 18.04
 
 ```
+sudo apt install docker docker-compose git
 git clone https://github.com/damray/panelk
-sudo apt install docker docker-compose
 sudo systemctl start docker
 sudo systemctl enable docker
 cd panelk
-# See **changes** first
+```
+
+Retrieve the output of the following command for your ip address:
+
+```
+ip addr
+```
+
+Launch docker-compose to download all images and scripts:
+
+```
 sudo docker-compose up
+```
+
+Elastic Search is now ready to be used.
+
+
+#### Use as a syslog
+
+On your Panorama or PAN-OS, create a new log forwarding profile to send all your logs to your newly created ELK stack.
+
+Port TCP/5514
+
+### Log on on Kibana
+
+Launch a web browser and use the ip address of your ubuntu server:
+```
+http://YOURIPADDRESS:5601
 ```
 
 ## To Do
