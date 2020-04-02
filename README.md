@@ -55,9 +55,45 @@ Elastic Search is now ready to be used.
 
 On your Panorama or PAN-OS, create a new log forwarding profile to send all your logs to your newly created ELK stack.
 
-Port TCP/5514
+To do so you can open a policy rule and go the the *Actions* tab en edit the *Log Settings*:
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Log Profile 1](https://github.com/damray/panelk/blob/master/images/log_profile-1.png)
+
+Add a new *Profile*:
+
+![Log Profile 2](https://github.com/damray/panelk/blob/master/images/log_profile-2.png)
+
+Click on *Add* to add a new *Profile match*:
+
+![Log Profile 3](https://github.com/damray/panelk/blob/master/images/log_profile-3.png)
+
+Give a name, select a log type, here *traffic*, and add a syslog server:
+
+![Log Profile 4](https://github.com/damray/panelk/blob/master/images/log_profile-4.png)
+
+Add a new *Syslog Profile* by clicking on the + in the *Syslog* frame:
+
+![Log Profile 5](https://github.com/damray/panelk/blob/master/images/log_profile-5.png)
+
+Add your elk server using the information gathered previously, and change the *Tranport* and *Port* to **TCP 5514**:
+
+![Log Profile 6](https://github.com/damray/panelk/blob/master/images/log_profile-6.png)
+
+Add the remaining categories, *auth*, *data*, *threat*, *tunnel*, *url* and *wildfire* and click *OK*.
+You should end up with the *Log Forwarding Profile* as below:
+
+![Log Profile 7](https://github.com/damray/panelk/blob/master/images/log_profile-7.png)
+
+Do the same for Device > Log Settings to send the System, Configuration, User-ID, HIP Match, GlobalProtect and IP-Tag
+
+![Log Profile 8](https://github.com/damray/panelk/blob/master/images/log_profile-8.png)
+
+Give a name to the *Log Settings* for each category, and add the *Syslog* server:
+
+![Log Profile 9](https://github.com/damray/panelk/blob/master/images/log_profile-9.png)
+
+Commit your changes to send the logs to the PAN ELK server.
+
 
 ### Log on on Kibana
 
