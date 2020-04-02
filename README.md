@@ -57,6 +57,8 @@ On your Panorama or PAN-OS, create a new log forwarding profile to send all your
 
 Port TCP/5514
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 ### Log on on Kibana
 
 Launch a web browser and use the ip address of your ubuntu server:
@@ -92,7 +94,7 @@ http://YOURIPADDRESS:5601
 
 * **Jean-Baptiste Guglielmine**
 	* *lead bruiteur*
-	* *master debugger "alors là c'est pas bon"*
+	* *master debugger*  "alors là c'est pas bon" - "c'est moi ou il y a deux espaces ?"
 	* *lead tips*
 
 * **Victor Knell** - *lead README.md developer*
