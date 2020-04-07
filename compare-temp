@@ -1,0 +1,117 @@
+GlobalProtect gateway client configuration generated. User name: draynal, Config name: AUTH-client-setting, Private IP: 192.168.4.23,  Client region: FR, Client IP: 92.184.107.103, Client version: 5.1.2-10, Device name: DamRay Iphone, Client OS version: Apple iOS 13.3.1, VPN type: App Level VPN.
+
+
+@timestamp	Apr 7, 2020 @ 10:04:04.000
+	@version	1
+	Action Flags	0x8000000000000000
+	Description	GlobalProtect gateway client configuration generated. User name: draynal, Config name: AUTH-client-setting, Private IP: 192.168.4.23,  Client region: FR, Client IP: 92.184.107.103, Client version: 5.1.2-10, Device name: DamRay Iphone, Client OS version: Apple iOS 13.3.1, VPN type: App Level VPN.
+	Device Group Hierarchy Level 1	0
+	Device Group Hierarchy Level 2	0
+	Device Group Hierarchy Level 3	0
+	Device Group Hierarchy Level 4	0
+	Device Name	fauray-fw
+	Event ID	globalprotectgateway-config-succ
+	FUTURE_USE	0
+	GP-CONFIG	AUTH-client-setting
+	GP-Client-Version	5.1.2-10
+	GP-Device	DamRay Iphone
+	GP-EventAction	configuration
+	GP-EventResult	generated
+	GP-OS-version	Apple iOS 13.3.1
+	GP-PRIVIP	192.168.4.23
+	GP-SourceRegion	FR
+	GP-USERNAME	draynal
+	GP-VPN-type	App Level VPN.
+	GP-VPNType	gateway
+	Generated Time	Apr 7, 2020 @ 12:04:04.000 ==> change
+	Module	general
+	Object	fauray_bsy-N
+	Receive Time	Apr 7, 2020 @ 12:04:04.000 ===> change
+	Sequence Number	2568252 ==> change
+	Serial Number	012801027307
+	Severity	informational
+	SourceIP	92.184.107.103
+	SourceIPGeo.city_name	Paris
+	SourceIPGeo.continent_code	EU
+	SourceIPGeo.country_code2	FR
+	SourceIPGeo.country_code3	FR
+	SourceIPGeo.country_name	France
+	SourceIPGeo.ip	92.184.107.103
+	SourceIPGeo.latitude	48.8543
+	SourceIPGeo.location.lat	48.8543
+	SourceIPGeo.location.lon	2.3527
+	SourceIPGeo.longitude	2.3527
+	SourceIPGeo.postal_code	75007
+	SourceIPGeo.region_code	75
+	SourceIPGeo.region_name	Paris
+	SourceIPGeo.timezone	Europe/Paris
+	Threat_ContentType	globalprotect
+	Type	SYSTEM
+	Virtual System	 - 
+	Virtual System Name	 - 
+	_id	SLfgU3EBMbQd3uNO6J-s
+	_index	panos-gp
+	_score	 - 
+	_type	_doc
+	facility	1
+	facility_label	user-level
+	host	192.168.0.252
+	logsource	fauray-fw.fauray.local
+	priority	14
+	severity	6
+	severity_label	Informational
+	started_event	2020-04-07T10:04:04.000Z
+	tags	PAN-OS_syslog, PAN-OS_GP, GP_Start
+	timestamp	Apr  7 10:04:04
+	type	syslog
+
+
+
+
+    @timestamp	Apr 7, 2020 @ 10:08:18.000
+	@version	1
+	Action Flags	0x8000000000000000
+	Description	GlobalProtect gateway client configuration released. User name: draynal, Private IP: 192.168.4.23, Client version: 5.1.2-10, Device name: DamRay Iphone, Client OS version: Apple iOS 13.3.1, VPN type: App Level VPN.
+	Device Group Hierarchy Level 1	0
+	Device Group Hierarchy Level 2	0
+	Device Group Hierarchy Level 3	0
+	Device Group Hierarchy Level 4	0
+	Device Name	fauray-fw
+	Event ID	globalprotectgateway-config-release
+	FUTURE_USE	0
+	GP-Client-Version	5.1.2-10
+	GP-Device	DamRay Iphone
+	GP-EventAction	configuration
+	GP-EventResult	released
+	GP-OS-version	Apple iOS 13.3.1
+	GP-PRIVIP	192.168.4.23
+	GP-USERNAME	draynal
+	GP-VPN-type	App Level VPN.
+	GP-VPNType	gateway
+	Generated Time	Apr 7, 2020 @ 12:08:18.000
+	Module	general
+	Object	fauray_bsy-N
+	Receive Time	Apr 7, 2020 @ 12:08:18.000
+	Sequence Number	2568262
+	Serial Number	012801027307
+	Severity	informational
+	Threat_ContentType	globalprotect
+	Type	SYSTEM
+	Virtual System	 - 
+	Virtual System Name	 - 
+	_id	m7fkU3EBMbQd3uNOyqgj
+	_index	panos-gp
+	_score	 - 
+	_type	_doc
+	end_event	2020-04-07T10:08:18.000Z
+	facility	1
+	facility_label	user-level
+	host	192.168.0.252
+	logsource	fauray-fw.fauray.local
+	newstarted	 - 
+	priority	14
+	severity	6
+	severity_label	Informational
+	tags	PAN-OS_syslog, PAN-OS_GP, GP_End
+	timestamp	Apr  7 10:08:18
+	type	syslog
