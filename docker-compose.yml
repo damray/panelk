@@ -39,6 +39,7 @@ services:
       - "9600:9600"
     environment:
       - LS_JAVA_OPTS=-Xmx4g -Xms1g
+      - LOG_LEVEL=DEBUG
     networks:
       - elk
     depends_on:
