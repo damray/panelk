@@ -57,6 +57,15 @@ do
     sleep 2
 done
 
+until curl -H 'Content-Type:application/json'\
+     -XPUT $es_url/_template/gp_mapping \
+     -d @/usr/share/kibana/config/gp_template_mapping.json
+do
+    sleep 2
+    echo inject gp template...
+    sleep 2
+done
+
 until curl \
      -H 'kbn-xsrf:true' \
      -XPOST $kb_url/api/saved_objects/_import \

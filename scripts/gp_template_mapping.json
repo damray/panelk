@@ -1,12 +1,12 @@
 {
     "index_patterns": [
-        "panos-threat*"
+        "panos-gp*"
     ],
     "settings": {
         "index": {
             "lifecycle": {
-                "name": "threat-policy",
-                "rollover_alias": "threat-rollover"
+                "name": "gp-policy",
+                "rollover_alias": "gp-rollover"
             },
             "number_of_shards": "1",
             "refresh_interval": "5s"
@@ -26,7 +26,7 @@
                     }
                 }
             },
-            "ContentType": {
+            "EventID": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -35,10 +35,16 @@
                     }
                 }
             },
-            "ReportID": {
-                "type": "long"
+            "Action Flags": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
             },
-            "type": {
+            "Description": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -46,9 +52,6 @@
                         "type": "keyword"
                     }
                 }
-            },
-            "DestinationPort": {
-                "type": "integer"
             },
             "GeneratedTime": {
                 "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
@@ -63,192 +66,81 @@
                     }
                 }
             },
-            "SourceZone": {
+            "Device Group Hierarchy Level 1": {
+                "type": "short"
+            },
+              "Device Group Hierarchy Level 2": {
+                "type": "short"
+            },
+              "Device Group Hierarchy Level 3": {
+                "type": "short"
+            },
+              "Device Group Hierarchy Level 4": {
+                "type": "short"
+            },
+              "Device Name": {
                 "type": "text",
                 "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
             },
-            "HTTPMethod": {
+            "GP-CONFIG": {
                 "type": "text",
                 "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-            },
-            "PCAP_ID": {
-                "type": "long"
-            },
-            "SequenceNumber": {
-                "type": "long"
-            },
-            "TunnelID_IMSI": {
-                "type": "long"
-            },
-            "host": {
+              },
+              "GP-Client-Version": {
                 "type": "text",
                 "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-            },
-            "NATSourceIP": {
-                "type": "ip"
-            },
-            "DestinationLocation": {
+              },
+              "GP-Device": {
                 "type": "text",
                 "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-            },
-            "NATDestinationPort": {
-                "type": "integer"
-            },
-            "RuleName": {
+              },
+              "GP-EventAction": {
                 "type": "text",
                 "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-            },
-            "syslog_host": {
+              },
+              "GP-EventResult": {
                 "type": "text",
                 "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-            },
-            "MonitorTag_IMEI": {
+              },
+              "GP-OS-version": {
                 "type": "text",
                 "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-            },
-            "URLIndex": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "DestinationIPGeo": {
-                "properties": {
-                    "timezone": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    },
-                    "ip": {
-                        "type": "ip"
-                    },
-                    "latitude": {
-                        "type": "half_float"
-                    },
-                    "continent_code": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    },
-                    "city_name": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    },
-                    "country_code2": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    },
-                    "country_name": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    },
-                    "dma_code": {
-                        "type": "short"
-                    },
-                    "country_code3": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    },
-                    "location": {
-                        "type": "geo_point"
-                    },
-                    "region_name": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    },
-                    "postal_code": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "type": "text"
-                            }
-                        }
-                    },
-                    "longitude": {
-                        "type": "half_float"
-                    },
-                    "region_code": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "ignore_above": 256,
-                                "type": "keyword"
-                            }
-                        }
-                    }
-                }
-            },
+              },
             "Recipient": {
                 "type": "text",
                 "fields": {
@@ -276,21 +168,6 @@
                     }
                 }
             },
-            "DeviceGroupHierarchyLevel4": {
-                "type": "short"
-            },
-            "DeviceGroupHierarchyLevel3": {
-                "type": "short"
-            },
-            "LogForwardingProfile": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
             "SerialNumber": {
                 "type": "text",
                 "fields": {
@@ -300,22 +177,7 @@
                     }
                 }
             },
-            "DeviceGroupHierarchyLevel2": {
-                "type": "short"
-            },
-            "SourceUser": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "DeviceGroupHierarchyLevel1": {
-                "type": "short"
-            },
-            "SourceVMUUID": {
+            "GP-USERNAME": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -333,24 +195,6 @@
                 "type": "date"
             },
             "ActionFlags": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "DestinationZone": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "Application": {
                 "type": "text",
                 "fields": {
                     "keyword": {
