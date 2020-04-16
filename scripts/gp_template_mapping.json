@@ -1,4 +1,6 @@
 {
+    "version": 7,
+    "order": 0,
     "index_patterns": [
         "panos-gp*"
     ],
@@ -14,6 +16,18 @@
     },
     "mappings": {
         "properties": {
+            "@timestamp": {
+                "type": "date"
+            },
+            "end_event": {
+                "type": "date"
+            },
+            "started_event": {
+                "type": "date"
+            },
+            "@version": {
+                "type": "byte"
+            },
             "RepeatCount": {
                 "type": "long"
             },
@@ -141,6 +155,42 @@
                   }
                 }
               },
+              "GP-REASON": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "SerialNumber": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "VirtualSystem": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "Virtual System Name": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
             "Recipient": {
                 "type": "text",
                 "fields": {
@@ -160,15 +210,6 @@
                 }
             },
             "Sender": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "SerialNumber": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -210,15 +251,6 @@
                 "type": "integer"
             },
             "SourceLocation": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "VirtualSystem": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -278,33 +310,6 @@
                     }
                 }
             },
-            "URLCategory": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "OutboundInterface": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "ThreatCategory": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
             "SourceIP": {
                 "type": "ip"
             },
@@ -316,9 +321,6 @@
                         "type": "keyword"
                     }
                 }
-            },
-            "@version": {
-                "type": "byte"
             },
             "SourceIPGeo": {
                 "properties": {
@@ -419,61 +421,7 @@
                     }
                 }
             },
-            "UserAgent": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "Protocol": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "Threat_ContentType": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "DestinationUser": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
             "FUTURE_USE": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "TunnelType": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "DestinationVMUUID": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -491,28 +439,7 @@
                     }
                 }
             },
-            "NATDestinationIP": {
-                "type": "ip"
-            },
             "Referer": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "Severity": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "Flags": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -534,48 +461,6 @@
                 "type": "ip"
             },
             "Type": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "@timestamp": {
-                "type": "date"
-            },
-            "FileType": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "Cloud": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "X-Forwarded-For": {
-                "type": "ip"
-            },
-            "FileDigest": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "ignore_above": 256,
-                        "type": "keyword"
-                    }
-                }
-            },
-            "DeviceName": {
                 "type": "text",
                 "fields": {
                     "keyword": {
