@@ -72,7 +72,7 @@ services:
       - ./scripts/object2.ndjson:/usr/share/kibana/config/object2.ndjson:ro
       - ./scripts/setup-panelk.sh:/usr/local/bin/setup-panelk.sh:ro
       - ./scripts/threat_template_mapping.json:/usr/share/kibana/config/threat_template_mapping.json:ro
-      - ./scripts/gp_template_mapping.json:/usr/share/kibana/config/gp_template_mapping.json:ro
+      - ./scripts/gp_mapping.json:/usr/share/kibana/config/gp_mapping.json:ro
       - ./scripts/traffic_template_mapping.json:/usr/share/kibana/config/traffic_template_mapping.json:ro
     command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-panelk.sh | tr -d "\r" | bash']
     environment: 
