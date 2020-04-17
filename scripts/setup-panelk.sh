@@ -84,14 +84,5 @@ do
     echo inject object...
 done
 
-until curl \
-     -H 'kbn-xsrf:true' \
-     -XPOST $kb_url/api/saved_objects/_import \
-     --form file=@/usr/share/kibana/config/object2.ndjson
-do
-    sleep 2
-    echo inject dashboard...
-done
-
 #never stop
 tail -f /dev/null
