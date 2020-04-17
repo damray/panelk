@@ -19,6 +19,12 @@
             "@timestamp": {
                 "type": "date"
             },
+            "startedVPN": {
+                "type": "date"
+            },
+            "endVPN": {
+                "type": "date"
+            },
             "FUTURE_USE": {
                 "type": "text",
                 "fields": {
