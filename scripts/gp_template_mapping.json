@@ -20,10 +20,12 @@
                 "type": "date"
             },
             "startedVPN": {
-                "type": "date"
+                "type": "date",
+                "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis"
             },
             "endVPN": {
-                "type": "date"
+                "type": "date",
+                "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis"
             },
             "FUTURE_USE": {
                 "type": "text",
@@ -65,7 +67,7 @@
                     }
                 }
             },
-            "Generated Time": {
+            "GeneratedTime": {
                 "type": "date",
                 "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis"
             },
