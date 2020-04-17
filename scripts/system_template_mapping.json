@@ -1,0 +1,165 @@
+{
+    "version": 6,
+    "order": 0,
+    "index_patterns": [
+        "panos-system*"
+    ],
+    "settings": {
+        "index": {
+            "lifecycle": {
+                "name": "gp-policy",
+                "rollover_alias": "gp-rollover"
+            },
+            "number_of_shards": "1",
+            "refresh_interval": "5s"
+        }
+    },
+    "mappings": {
+        "properties": {
+            "@timestamp": {
+                "type": "date"
+            },
+            "FUTURE_USE": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "ReceiveTime": {
+                "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis",
+                "type": "date"
+            },
+            "SerialNumber": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "Type": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Threat_ContentType": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Generated Time": {
+                "type": "date",
+                "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis"
+            },
+            "VirtualSystem": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "EventID": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Object": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Module": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Severity": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Description": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "SequenceNumber": {
+                "type": "long"
+            },
+            "ActionFlags": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "Device Group Hierarchy Level 1": {
+                "type": "short"
+            },
+              "Device Group Hierarchy Level 2": {
+                "type": "short"
+            },
+              "Device Group Hierarchy Level 3": {
+                "type": "short"
+            },
+              "Device Group Hierarchy Level 4": {
+                "type": "short"
+            },
+              "DeviceName": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+            },
+            "VirtualSystemName": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            }
+        }
+    },
+    "aliases": {}
+}
