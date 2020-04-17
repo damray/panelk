@@ -35,6 +35,7 @@ services:
       - "5000:5000/tcp"
       - "5000:5000/udp"
       - "5514:5514/tcp"
+      - "5514:5514/udp"
       - "9600:9600"
     environment:
       - LS_JAVA_OPTS=-Xmx4g -Xms1g
