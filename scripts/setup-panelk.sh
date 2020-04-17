@@ -67,7 +67,7 @@ do
 done
 
 until curl -H 'Content-Type:application/json'\
-     -XPUT $es_url/_template/gp_mapping \
+     -XPUT $es_url/_template/system_mapping \
      -d @/usr/share/kibana/config/system_template_mapping.json
 do
     sleep 2
