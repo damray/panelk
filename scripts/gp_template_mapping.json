@@ -386,9 +386,7 @@
             },
             "PrivateIP": {
                 "type": "ip"
-                }
             }
         }
-    },
-    "aliases": {}
+    }
 }
