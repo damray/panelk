@@ -60,7 +60,7 @@ services:
     depends_on:
       - elasticsearch
     healthcheck:
-        test: curl -s -f http://elastic:${ELASTIC_PASSWORD}@localhost:9200/_cat/health; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
+        test: curl -s -f http://elastic:changeme@localhost:9200/_cat/health; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
         interval: 30s
         timeout: 10s
         retries: 5
