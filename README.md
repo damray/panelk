@@ -140,6 +140,15 @@ http://YOURIPADDRESS:5601
 
 ## DRAFT CHAPTER
 
+## How to clean everything and delete all dockger image on your host
+if you need to change mapping, you have to create a new index to use your new mapping in ES or because it's docker and if you dont mind to lose all your log you can reset all docker volume and image :
+
+From the directory panelk
+```
+docker-compose down --volumes
+docker rmi -f $(docker image ls -aq)
+```
+
 ## Waiting for ES and Kibana to be "healthy"
 In the Docker compose the panelk is configured to wait for the ElasticSearch and Kibana container to startup and be ready to accept requests before continuing :
 
