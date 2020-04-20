@@ -8,7 +8,7 @@
         "index": {
             "lifecycle": {
                 "name": "gp-policy",
-                "rollover_alias": "gp-policy"
+                "rollover_alias": "gp-rollover"
             },
             "number_of_shards": "1",
             "refresh_interval": "5s"
