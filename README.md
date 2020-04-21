@@ -29,7 +29,7 @@ Initial work on PAN-OS integration with ELK
 Installation on Ubuntu LTS 18.04
 
 ```
-sudo apt install docker docker-compose git
+sudo apt install docker docker-compose git -y
 git clone https://github.com/damray/panelk
 sudo systemctl start docker
 sudo systemctl enable docker
@@ -75,7 +75,7 @@ Add a new *Syslog Profile* by clicking on the + in the *Syslog* frame:
 
 ![Log Profile 5](https://github.com/damray/panelk/blob/master/images/log_profile-5.png)
 
-Add your elk server using the information gathered previously, and change the *Tranport* and *Port* to **TCP 5514**:
+Add your elk server using the information gathered previously, and change the *Tranport* and *Port* to **UDP or TCP 5514**:
 
 ![Log Profile 6](https://github.com/damray/panelk/blob/master/images/log_profile-6.png)
 
@@ -105,18 +105,9 @@ http://YOURIPADDRESS:5601
 ## To Do
 ​
 **Next steps**
-- [x] Ingestion
-- [x] Global Protect
-- [ ] No ip change needed
-- [ ] Threat logs
-- [ ] Traffic logs
-- [ ] System logs - parse per event ID (global protect and others)
-​
+- [x] Global Protect for 9.1
+- [ ] Global Protect for 9.0 and below
 
-**Optional**
-- [ ] monitor global protect user delta between connection and disconnection
-- [ ] automate provisionning to have less manual config
-- [ ] beats ?
 
 ## References
 
@@ -134,6 +125,8 @@ http://YOURIPADDRESS:5601
 	* *lead tips*
 
 * **Victor Knell** - *lead README.md developer*
+
+* **Victor Knell** - *lead geolocalisation*
 
 ## License
 ​This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/blob/master/LICENSE.md) file for details
