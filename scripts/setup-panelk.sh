@@ -15,9 +15,6 @@ until curl -s -f http://elastic:${ELASTIC_PASSWORD}@kibana:5601/status -o /dev/n
     sleep 2 
 done
 
-# if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
-
-
 # Wait for Elasticsearch to start up before doing anything.
 until curl -s $es_url/ -o /dev/null; do
     sleep 1
@@ -26,19 +23,6 @@ until curl -s $kb_url -o /dev/null; do
     sleep 1
 done
 
-# create user 
-#until curl -s -H 'Content-Type:application/json' \
-#     -XPOST $es_url/_security/user/${user} \
-#     -d "{\"password\": \"${ELASTIC_PASSWORD}\"}"
-#do
-# Set the password for the elastic user.
-#until curl -s -H 'Content-Type:application/json' \
-#     -XPOST $es_url/_security/user/${user}/_password \
-#     -d "{\"password\": \"${ELASTIC_PASSWORD}\"}"
-#do
-#    sleep 2
-#    echo Retrying1...
-#done
 until curl -H 'Content-Type:application/json'\
      -XPUT $es_url/_template/traffic_mapping \
      -d @/usr/share/kibana/config/traffic_template_mapping.json
