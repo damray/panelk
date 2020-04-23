@@ -126,7 +126,7 @@ http://YOURIPADDRESS:5601
 
 * **Victor Knell** - *lead README.md developer*
 
-* **Victor Knell** - *lead geolocalisation*
+* **Fabien Desbrueres** - *lead geolocalisation*
 
 ## License
 ​This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/blob/master/LICENSE.md) file for details
