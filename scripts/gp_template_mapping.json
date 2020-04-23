@@ -462,6 +462,15 @@
                     }
                 }
             },
+            "CertificatCN": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
             "Location": {
                 "type": "text",
                 "fields": {
