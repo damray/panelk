@@ -227,6 +227,9 @@
             "SourceIP": {
                 "type": "ip"
             },
+            "SourceIP2": {
+                "type": "ip"
+            },
             "SourceIPGeo": {
                 "properties": {
                     "city_name": {
