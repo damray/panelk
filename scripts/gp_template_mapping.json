@@ -21,11 +21,11 @@
             },
             "startedVPN": {
                 "type": "date",
-                "format": "YYYY-MM-dd'T'HH:mm:ss.SSSXXX"
+                "format": "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
             },
             "endVPN": {
                 "type": "date",
-                "format": "YYYY-MM-dd'T'HH:mm:ss.SSSXXX"
+                "format": "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
             },
             "FUTURE_USE": {
                 "type": "text",
