@@ -9,5 +9,6 @@ xpack.monitoring.ui.container.elasticsearch.enabled: true
 
 ## X-Pack security credentials
 #
+xpack.security.enabled: true
 elasticsearch.username: elastic
 elasticsearch.password: changeme
