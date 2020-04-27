@@ -77,5 +77,23 @@ do
     sleep 2
 done
 
+until curl -H 'Content-Type: application/json'\
+     -XPUT $es_url/_ilm/policy/traffic-policy \
+     -d '{ "policy": {"phases": {"warm": {"min_age": "10d", "actions": {"forcemerge": {"max_num_segments": 1}}},"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
+do
+    sleep 2
+    echo create Index Lifecycle policy traffic-policy...
+    sleep 2
+done
+
+until curl -H 'Content-Type: application/json'\
+     -XPUT $es_url/_ilm/policy/threat-policy \
+     -d '{ "policy": {"phases": {"warm": {"min_age": "10d", "actions": {"forcemerge": {"max_num_segments": 1}}},"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
+do
+    sleep 2
+    echo create Index Lifecycle policy threat-policy...
+    sleep 2
+done
+
 #never stop
 tail -f /dev/null
