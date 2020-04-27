@@ -95,5 +95,37 @@ do
     sleep 2
 done
 
+until curl -H 'Content-Type: application/json'\
+     -XPUT $es_url/panos-gp
+do
+    sleep 2
+    echo create Index panos-gp...
+    sleep 2
+done
+
+until curl -H 'Content-Type: application/json'\
+     -XPUT $es_url/panos-gp
+do
+    sleep 2
+    echo create Index panos-gp...
+    sleep 2
+done
+
+until curl -H 'Content-Type: application/json'\
+     -XPUT $es_url/panos-traffic
+do
+    sleep 2
+    echo create Index panos-traffic...
+    sleep 2
+done
+
+until curl -H 'Content-Type: application/json'\
+     -XPUT $es_url/panos-threat
+do
+    sleep 2
+    echo create Index panos-threat...
+    sleep 2
+done
+
 #never stop
 tail -f /dev/null
