@@ -11,7 +11,8 @@
                 "rollover_alias": "gp-rollover"
             },
             "number_of_shards": "1",
-            "refresh_interval": "5s"
+            "refresh_interval": "1s",
+            "number_of_replicas": "0"
         }
     },
     "mappings": {
