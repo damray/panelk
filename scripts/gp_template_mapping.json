@@ -505,7 +505,7 @@
                     }
                 }
             },
-            "Portal": {
+            "GPConfigName": {
                 "type": "text",
                 "fields": {
                     "keyword": {
