@@ -70,7 +70,7 @@ done
 
 until curl -H 'Content-Type: application/json'\
      -XPUT $es_url/_ilm/policy/gp-policy \
-     -d '{ "policy": {"phases": {"warm": {"min_age": "10d", "actions": {"forcemerge": {"max_num_segments": 1}}},"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
+     -d '{ "policy": {"phases": {"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
 do
     sleep 2
     echo create Index Lifecycle policy gp-policy...
@@ -79,7 +79,7 @@ done
 
 until curl -H 'Content-Type: application/json'\
      -XPUT $es_url/_ilm/policy/traffic-policy \
-     -d '{ "policy": {"phases": {"warm": {"min_age": "10d", "actions": {"forcemerge": {"max_num_segments": 1}}},"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
+     -d '{ "policy": {"phases": {"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
 do
     sleep 2
     echo create Index Lifecycle policy traffic-policy...
@@ -88,7 +88,7 @@ done
 
 until curl -H 'Content-Type: application/json'\
      -XPUT $es_url/_ilm/policy/threat-policy \
-     -d '{ "policy": {"phases": {"warm": {"min_age": "10d", "actions": {"forcemerge": {"max_num_segments": 1}}},"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
+     -d '{ "policy": {"phases": {"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
 do
     sleep 2
     echo create Index Lifecycle policy threat-policy...
