@@ -186,6 +186,24 @@
                     }
                 }
             },
+            "logout-EventAction": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
+            "gp-logout-reason": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
             "GP-EventResult": {
                 "type": "text",
                 "fields": {
