@@ -61,7 +61,8 @@ done
 
 until curl \
      -H 'kbn-xsrf:true' \
-     -XPOST $kb_url/api/saved_objects/_import \
+     -H 'overwrite' \
+     -XPOST $kb_url/api/saved_objects/_import?overwrite=true \
      --form file=@/usr/share/kibana/config/object1.ndjson
 do
     sleep 2
