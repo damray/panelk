@@ -484,6 +484,15 @@
                     }
                 }
             },
+            "LiveStatus": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "ignore_above": 256,
+                        "type": "keyword"
+                    }
+                }
+            },
             "CertificatCN": {
                 "type": "text",
                 "fields": {

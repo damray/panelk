@@ -1,13 +1,12 @@
 #!/bin/bash
 
 set -euo pipefail
-
-user=paloalto
-
 es_url=http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200
 kb_url=http://elastic:${ELASTIC_PASSWORD}@kibana:5601
 
-until curl -s -f http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200/_cat/health -o /dev/null ; do
+# Wait for Elasticsearch to start up before doing anything.
+
+until curl -s -f http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200/_cat/nodes?v&pretty -o /dev/null ; do
     sleep 2 
 done
 
@@ -15,14 +14,7 @@ until curl -s -f http://elastic:${ELASTIC_PASSWORD}@kibana:5601/status -o /dev/n
     sleep 2 
 done
 
-# Wait for Elasticsearch to start up before doing anything.
-until curl -s $es_url/ -o /dev/null; do
-    sleep 1
-done
-until curl -s $kb_url -o /dev/null; do
-    sleep 1
-done
-
+# Push Template for the different Index
 until curl -H 'Content-Type:application/json'\
      -XPUT $es_url/_template/traffic_mapping \
      -d @/usr/share/kibana/config/traffic_template_mapping.json
@@ -59,6 +51,7 @@ do
     sleep 2
 done
 
+# Push Object and overwrite existing object in case of update
 until curl \
      -H 'kbn-xsrf:true' \
      -H 'overwrite' \
@@ -69,6 +62,7 @@ do
     echo inject object...
 done
 
+# Create Index and Index lifecycle policy in ES to avoid indexing latency for the first log
 until curl -H 'Content-Type: application/json'\
      -XPUT $es_url/_ilm/policy/gp-policy \
      -d '{ "policy": {"phases": {"delete": {"min_age": "30d","actions": {"delete": {}}}}}}'
@@ -128,5 +122,5 @@ do
     sleep 2
 done
 
-#never stop
+# Never stop the container script in case of debugging
 tail -f /dev/null
