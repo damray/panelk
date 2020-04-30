@@ -50,7 +50,27 @@ sudo docker-compose up
 
 Elastic Search is now ready to be used.
 
+#### Create Certificat for communication and Random password user
 
+Generate the certificates (only needed once):
+
+```
+docker-compose -f create-certs.yml run --rm create_certs
+```
+
+Access Elasticsearch API Over SSL/TLS user the bootstrap password
+```
+docker run --rm -v es_certs:/certs --network=es_default docker.elastic.co/elasticsearch/elasticsearch:7.6.2 curl --cacert /certs/ca/ca.crt -u elastic:PleaseChangeMe https://es01:9200
+```
+
+The elasticsearch-setup-passwords tool can also be used to generate random passwords for all users:
+```
+docker exec es01 /bin/bash -c "bin/elasticsearch-setup-passwords \
+auto --batch \
+--url https://localhost:9200"
+```
+
+Elastic Search is now ready to be used.
 #### Use as a syslog
 
 On your Panorama or PAN-OS, create a new log forwarding profile to send all your logs to your newly created ELK stack.

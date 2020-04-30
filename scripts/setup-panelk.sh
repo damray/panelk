@@ -1,12 +1,12 @@
 #!/bin/bash
 
 set -euo pipefail
-es_url=http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200
+es_url=http://elastic:${ELASTIC_PASSWORD}@es01:9200
 kb_url=http://elastic:${ELASTIC_PASSWORD}@kibana:5601
 
 # Wait for Elasticsearch to start up before doing anything.
 
-until curl -s -f http://elastic:${ELASTIC_PASSWORD}@elasticsearch:9200/_cat/nodes?v&pretty -o /dev/null ; do
+until curl -s -f http://elastic:${ELASTIC_PASSWORD}@$es_url:9200/_cat/nodes?v&pretty -o /dev/null ; do
     sleep 2 
 done
 
