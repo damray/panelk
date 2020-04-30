@@ -6,7 +6,7 @@ kb_url=http://elastic:${ELASTIC_PASSWORD}@kibana:5601
 
 # Wait for Elasticsearch to start up before doing anything.
 
-until curl -s -f $es_url/_cat/nodes?v&pretty -o /dev/null ; do
+until curl -s -f $es_url/_cat/health -o /dev/null ; do
     sleep 2 
 done
 
