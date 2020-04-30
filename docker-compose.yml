@@ -42,7 +42,7 @@ services:
     networks:
       - elk
     depends_on:
-      - elasticsearch
+      - es01
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.6.2
@@ -58,7 +58,7 @@ services:
     networks:
       - elk
     depends_on:
-      - elasticsearch
+      - es01
     healthcheck:
         test: curl -s -f http://elastic:changeme@localhost:9200/_cat/health; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
         interval: 30s
