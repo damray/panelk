@@ -88,4 +88,4 @@ networks:
     driver: bridge
 
 volumes:
-  elasticsearch:
+  es01:
