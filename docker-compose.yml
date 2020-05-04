@@ -81,9 +81,6 @@ services:
       - ./scripts/traffic_template_mapping.json:/usr/share/kibana/config/traffic_template_mapping.json:ro
       - ./scripts/system_template_mapping.json:/usr/share/kibana/config/system_template_mapping.json:ro
     command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-panelk.sh | tr -d "\r" | bash']
-    environment: 
-      - ELASTIC_PASSWORD=changeme
-      - user=elastic
     env_file:
       - editme.env
     restart: always
