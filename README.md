@@ -27,7 +27,6 @@ Initial work on PAN-OS integration with ELK
 #### Ubuntu 18.04 LTS
 
 Installation on Ubuntu LTS 18.04
-
 ```
 sudo apt install docker docker-compose git -y
 git clone https://github.com/damray/panelk
@@ -35,25 +34,45 @@ sudo systemctl start docker
 sudo systemctl enable docker
 cd panelk
 ```
+#### Other Linux version
 
-Retrieve the output of the following command for your ip address:
+You must download the latest version of docker-compose to interpret the version 3.2 of our docker-compose.yml
+You can read the official installation doc [here](https://docs.docker.com/compose/install/)
 
+We advise to check where is your actual docker-compose :
 ```
-ip addr
+whereis docker-compose
 ```
+After you can replace the path in the code of the installation docker-compose :
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+#### Modify group docker for your actual user
 
 To avoid to use the sudo command and launch the different container in root, you can add your user to the docker group :
 ```
 sudo usermod -aG docker $USER
 ```
 
-Launch docker-compose to download all images and scripts:
+#### Modify login and password
 
+To modify the default login/password (elastic/changeme) you can edit the file and modify :
+```
+vim editme.env
+```
+
+#### Launch PANELK and wait few minute
+Launch docker-compose to download all images and scripts:
 ```
 docker-compose up
 ```
+You will see a lot of logs and check everything is ok, if you use ctrl+c it will stop the container. if you want to launch in detach mode add -d to your command
 
-Elastic Search is now ready to be used.
+```
+docker-compose up -d
+```
+Elastic Search is now ready to be used and will restart automatically if your server reboot accidentally
 
 #### Create Certificat for communication and Random password user
 
@@ -76,6 +95,7 @@ auto --batch \
 ```
 
 Elastic Search is now ready to be used.
+
 #### Use as a syslog
 
 On your Panorama or PAN-OS, create a new log forwarding profile to send all your logs to your newly created ELK stack.
