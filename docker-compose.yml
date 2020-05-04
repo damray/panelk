@@ -16,8 +16,9 @@ services:
       - "9300:9300"
     environment:
       - ES_JAVA_OPTS=-Xmx4g -Xms2g
-      - ELASTIC_PASSWORD=changeme
       - discovery.type=single-node
+    env_file:
+      - editme.env
     restart: always
     networks:
       - elk
@@ -40,6 +41,8 @@ services:
       - "9600:9600"
     environment:
       - LS_JAVA_OPTS=-Xmx4g -Xms1g
+    env_file:
+      - editme.env
     restart: always
     networks:
       - elk
@@ -55,8 +58,8 @@ services:
         read_only: true
     ports:
       - "5601:5601"
-    environment:
-      - ELASTIC_PASSWORD=changeme
+    env_file:
+      - editme.env
     restart: always
     networks:
       - elk
@@ -81,6 +84,8 @@ services:
     environment: 
       - ELASTIC_PASSWORD=changeme
       - user=elastic
+    env_file:
+      - editme.env
     restart: always
     networks: 
       - elk
