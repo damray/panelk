@@ -42,10 +42,15 @@ Retrieve the output of the following command for your ip address:
 ip addr
 ```
 
+To avoid to use the sudo command and launch the different container in root, you can add your user to the docker group :
+```
+sudo usermod -aG docker $USER
+```
+
 Launch docker-compose to download all images and scripts:
 
 ```
-sudo docker-compose up
+docker-compose up
 ```
 
 Elastic Search is now ready to be used.
