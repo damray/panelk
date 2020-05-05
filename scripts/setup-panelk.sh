@@ -1,8 +1,8 @@
 #!/bin/bash
 
 set -euo pipefail
-es_url=http://elastic:${ELASTIC_PASSWORD}@es01:9200
-kb_url=http://elastic:${ELASTIC_PASSWORD}@kibana:5601
+es_url=http://${ELASTIC_USER}:${ELASTIC_PASSWORD}@es01:9200
+kb_url=http://${ELASTIC_USER}:${ELASTIC_PASSWORD}@kibana:5601
 
 # Wait for Elasticsearch to start up before doing anything.
 
@@ -10,7 +10,7 @@ until curl -s -f $es_url/_cat/health -o /dev/null ; do
     sleep 2 
 done
 
-until curl -s -f http://elastic:${ELASTIC_PASSWORD}@kibana:5601/status -o /dev/null ; do
+until curl -s -f http://${ELASTIC_USER}:${ELASTIC_PASSWORD}@kibana:5601/status -o /dev/null ; do
     sleep 2 
 done
 
@@ -123,4 +123,4 @@ do
 done
 
 # Never stop the container script in case of debugging
-tail -f /dev/null
+# tail -f /dev/null
