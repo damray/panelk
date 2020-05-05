@@ -126,7 +126,9 @@ http://YOURIPADDRESS:5601
 ​
 **Next steps**
 - [x] Global Protect for 9.1
-- [ ] Global Protect for 9.0 and below
+- [x] Global Protect for 9.0 and below
+- [x] Panos Threat logs
+- [ ] Integrate Beat to use SIEM module and normalization
 
 
 ## References
@@ -153,7 +155,7 @@ http://YOURIPADDRESS:5601
 
 ## DRAFT CHAPTER
 
-## How to clean everything and delete all dockger image on your host
+## How to clean everything and delete all docker image on your host
 if you need to change mapping, you have to create a new index to use your new mapping in ES or because it's docker and if you dont mind to lose all your log you can reset all docker volume and image :
 
 From the directory panelk
@@ -190,7 +192,7 @@ The script check if ELK is alive and push several configuration :
 - [x] object with index pattern
 - [x] dashboard
 - [x] elastic mapping template Threat and Traffic
-- [ ] elastic mapping template URL and GP
+- [x] elastic mapping template URL and GP
 - [x] elastic index creation
 - [x] Kibana dashboard
 ​
