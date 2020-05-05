@@ -74,7 +74,7 @@ docker-compose up -d
 ```
 Elastic Search is now ready to be used and will restart automatically if your server reboot accidentally
 
-#### Create Certificat for communication and Random password user
+#### //NOT AVAILABLE AT THE MOMENT // Create Certificat for communication and Random password user
 
 Generate the certificates (only needed once):
 
