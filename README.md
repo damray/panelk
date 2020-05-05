@@ -221,3 +221,11 @@ The script check if ELK is alive and push several configuration :
 - [x] elastic index creation
 - [x] Kibana dashboard
 ​
+## Screenshots
+Traffic Dashboard :
+![Traffic Dashboard](https://github.com/damray/panelk/blob/master/images/dashboard_traffic_01.png)
+
+Global Protect Dashboard :
+![GP Dashboard 01](https://github.com/damray/panelk/blob/master/images/dashboard_gp_01.png)
+![GP Dashboard 02](https://github.com/damray/panelk/blob/master/images/dashboard_gp_02.png)
+![GP Dashboard 03](https://github.com/damray/panelk/blob/master/images/dashboard_gp_03.png)
