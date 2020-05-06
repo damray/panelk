@@ -83,7 +83,7 @@ services:
     command: ['/bin/bash', '-c', 'cat /usr/local/bin/setup-panelk.sh | tr -d "\r" | bash']
     env_file:
       - editme.env
-    networks: 
+    networks:
       - elk
     depends_on: 
       - kibana
