@@ -74,25 +74,6 @@ docker-compose up -d
 ```
 Elastic Search is now ready to be used and will restart automatically if your server reboot accidentally
 
-#### //NOT AVAILABLE AT THE MOMENT // Create Certificat for communication and Random password user
-
-Generate the certificates (only needed once):
-
-```
-docker-compose -f create-certs.yml run --rm create_certs
-```
-
-Access Elasticsearch API Over SSL/TLS user the bootstrap password
-```
-docker run --rm -v es_certs:/certs --network=es_default docker.elastic.co/elasticsearch/elasticsearch:7.6.2 curl --cacert /certs/ca/ca.crt -u elastic:PleaseChangeMe https://es01:9200
-```
-
-The elasticsearch-setup-passwords tool can also be used to generate random passwords for all users:
-```
-docker exec es01 /bin/bash -c "bin/elasticsearch-setup-passwords \
-auto --batch \
---url https://localhost:9200"
-```
 
 Elastic Search is now ready to be used.
 
@@ -147,6 +128,15 @@ Launch a web browser and use the ip address of your ubuntu server:
 http://YOURIPADDRESS:5601
 ```
 
+## Screenshots
+Traffic Dashboard :
+![Traffic Dashboard](https://github.com/damray/panelk/blob/master/images/dashboard_traffic_01.png)
+
+Global Protect Dashboard :
+![GP Dashboard 01](https://github.com/damray/panelk/blob/master/images/dashboard_gp_01.png)
+![GP Dashboard 02](https://github.com/damray/panelk/blob/master/images/dashboard_gp_02.png)
+![GP Dashboard 03](https://github.com/damray/panelk/blob/master/images/dashboard_gp_03.png)
+
 ## To Do
 ​
 **Next steps**
@@ -154,7 +144,8 @@ http://YOURIPADDRESS:5601
 - [x] Global Protect for 9.0 and below
 - [x] Panos Threat logs
 - [ ] Integrate Beat to use SIEM module and normalization
-
+- [ ] Add certificat init
+- [ ] Improve Threat and URL Information
 
 ## References
 
@@ -224,11 +215,22 @@ The script check if ELK is alive and push several configuration :
 - [x] elastic index creation
 - [x] Kibana dashboard
 ​
-## Screenshots
-Traffic Dashboard :
-![Traffic Dashboard](https://github.com/damray/panelk/blob/master/images/dashboard_traffic_01.png)
+#### //NOT AVAILABLE AT THE MOMENT // Create Certificat for communication and Random password user
 
-Global Protect Dashboard :
-![GP Dashboard 01](https://github.com/damray/panelk/blob/master/images/dashboard_gp_01.png)
-![GP Dashboard 02](https://github.com/damray/panelk/blob/master/images/dashboard_gp_02.png)
-![GP Dashboard 03](https://github.com/damray/panelk/blob/master/images/dashboard_gp_03.png)
+Generate the certificates (only needed once):
+
+```
+docker-compose -f create-certs.yml run --rm create_certs
+```
+
+Access Elasticsearch API Over SSL/TLS user the bootstrap password
+```
+docker run --rm -v es_certs:/certs --network=es_default docker.elastic.co/elasticsearch/elasticsearch:7.6.2 curl --cacert /certs/ca/ca.crt -u elastic:PleaseChangeMe https://es01:9200
+```
+
+The elasticsearch-setup-passwords tool can also be used to generate random passwords for all users:
+```
+docker exec es01 /bin/bash -c "bin/elasticsearch-setup-passwords \
+auto --batch \
+--url https://localhost:9200"
+```
