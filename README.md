@@ -24,7 +24,9 @@ Initial work on PAN-OS integration with ELK
 
 ### Installation
 
-#### Ubuntu 18.04 LTS
+#### Server software required
+
+##### Ubuntu 18.04 LTS
 
 Installation on Ubuntu LTS 18.04
 ```
@@ -34,7 +36,7 @@ sudo systemctl start docker
 sudo systemctl enable docker
 cd panelk
 ```
-#### Other Linux version
+##### Other Linux version
 
 You must download the latest version of docker-compose to interpret the version 3.2 of our docker-compose.yml
 You can read the official installation doc [here](https://docs.docker.com/compose/install/)
@@ -48,14 +50,14 @@ After you can replace the path in the code of the installation docker-compose :
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-#### Modify group docker for your actual user
+#### Add the user to the docker group
 
 To avoid to use the sudo command and launch the different container in root, you can add your user to the docker group :
 ```
 sudo usermod -aG docker $USER
 ```
 
-#### Modify login and password
+#### Change the login and password
 
 To modify the default login/password (elastic/changeme) you can edit the file and modify :
 ```
@@ -63,7 +65,10 @@ vim editme.env
 ```
 
 #### Launch PANELK and wait few minute
-Launch docker-compose to download all images and scripts:
+
+Launch docker-compose to download all images and scripts.
+Be careful, if you use ctrl+c it will stop the containers. Launch it in detach mode add -d to your command
+
 ```
 docker-compose up
 ```
@@ -137,6 +142,40 @@ Global Protect Dashboard :
 ![GP Dashboard 02](https://github.com/damray/panelk/blob/master/images/dashboard_gp_02.png)
 ![GP Dashboard 03](https://github.com/damray/panelk/blob/master/images/dashboard_gp_03.png)
 
+## How to use panelk with other log sources
+
+We recommend to create a local branch so your configuration will not be stashed during a git pull to update the origin.
+
+```
+git branch changes
+git checkout changes
+```
+
+To change back to the master enter the following command:
+```
+git checkout master
+```
+
+### Change the current configuration
+
+*docker-compose.yml*
+list of ports logstash is listening on:
+```
+ logstash:
+    ...
+    ports:
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "5514:5514/tcp"
+      - "5514:5514/udp"
+      - "9600:9600"
+```
+
+*logstash/pipeline/logstash.conf*
+Either change the configuration to add filters and output
+**OR**
+Add another .conf file to the logstash pipeline folder. All files in the folder will be read by logstash.
+
 ## To Do
 ​
 **Next steps**
@@ -144,7 +183,7 @@ Global Protect Dashboard :
 - [x] Global Protect for 9.0 and below
 - [x] Panos Threat logs
 - [ ] Integrate Beat to use SIEM module and normalization
-- [ ] Add certificat init
+- [ ] Add certificate init
 - [ ] Improve Threat and URL Information
 
 ## References
@@ -157,20 +196,21 @@ Global Protect Dashboard :
 
 ### Contributors 
 
-* **Jean-Baptiste Guglielmine**
-	* *lead bruiteur*
-	* *master debugger*  "alors là c'est pas bon" - "c'est moi ou il y a deux espaces ?"
-	* *lead tips*
+* **Jean-Baptiste  Guglielmine**
+  * *lead bruiteur*
+  * *master debugger*  "alors là c'est pas bon" - "c'est moi ou il y a deux espaces ?"
+  * *lead tips*
 
 * **Victor Knell** - *lead README.md developer*
 
 * **Fabien Desbrueres** - *lead geolocalisation*
   * *peace debugger* "Dam i think we have a strange bug"
-  * *designer master*
+  * *master designer*
 
 
 ## License
 ​This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/damray/panelk/blob/master/LICENSE.md) file for details
+
 
 ## DRAFT CHAPTER
 
