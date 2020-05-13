@@ -144,21 +144,35 @@ Global Protect Dashboard :
 
 ## How to use panelk with other log sources
 
+### Kibana changes
+
+We recommend that you save your dashboard and visualization as new when customizing Kibana.
+Then export your objects to have a backup in case your volume is erased.
+
+### Logstash changes
+
 We recommend to create a local branch so your configuration will not be stashed during a git pull to update the origin.
+Type *git branch "your branch name"* to create a new branch, and then change to this new environment with a checkout.
 
 ```
 git branch changes
 git checkout changes
 ```
 
-To change back to the master enter the following command:
+To add the updated modification from the official repository merge Panelk changes to your branch with this command:
+```
+git merge master
+```
+
+If you need to change back to the master branch enter the following command:
 ```
 git checkout master
 ```
 
 ### Change the current configuration
 
-*docker-compose.yml*
+**docker-compose.yml**
+
 list of ports logstash is listening on:
 ```
  logstash:
@@ -171,9 +185,12 @@ list of ports logstash is listening on:
       - "9600:9600"
 ```
 
-*logstash/pipeline/logstash.conf*
+**logstash/pipeline/logstash.conf**
+
 Either change the configuration to add filters and output
+
 **OR**
+
 Add another .conf file to the logstash pipeline folder. All files in the folder will be read by logstash.
 
 ## To Do
@@ -196,7 +213,7 @@ Add another .conf file to the logstash pipeline folder. All files in the folder 
 
 ### Contributors 
 
-* **Jean-Baptiste  Guglielmine**
+* **Jean-Baptiste Guglielmine**
   * *lead bruiteur*
   * *master debugger*  "alors là c'est pas bon" - "c'est moi ou il y a deux espaces ?"
   * *lead tips*
